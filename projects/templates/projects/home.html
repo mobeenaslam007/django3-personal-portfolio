@@ -1,0 +1,26 @@
+{% extends "projects/base.html" %}
+
+{% block content %}
+
+<h1>Welcome</h1>
+
+{% load static %}
+
+{% for project in projects %}
+
+<a href="{% static 'projects/CV - Mobeen Aslam.pdf' %}">Resume</a>
+<a href="{% url 'blogs:all_blogs' %}">Blogs</a>
+<br>
+<img src="{% static 'projects/Capture1.jpg' %}" width="1200">
+<h2>{{ project.title }}</h2>
+<h4>{{ project.description }}</h4>
+<img src="{{ project.image.url }}">
+
+{% if project.url %}
+<br>
+<a href="{{ project.url }}">Link</a>
+{% endif %}
+
+{% endfor %}
+
+{% endblock %}
